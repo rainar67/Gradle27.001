@@ -1,0 +1,54 @@
+package data;
+
+import model.Category;
+import model.Tag;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PetData {
+
+    public Integer idPet=5;
+    public Category category=null;
+    public String namePet="Cat123";
+    public List<String> photoUrls=null;
+    public List<Tag> tags=null;
+    public String status="available";
+    public  String photoUrlDefault="string";
+public PetData(){
+    fillTagsWithDefaultData();
+    fillCategoryWithDefaultData();
+    fillPhotoURLWithDefaultData();
+    }
+private void fillCategoryWithDefaultData(){
+    this.category=new Category();
+    CategoryData categoryData= new CategoryData();
+    this.category.setId(categoryData.idCategory);
+    this.category.setName(categoryData.nameCategoryString);
+}
+private  void fillPhotoURLWithDefaultData(){
+    this.photoUrls=new ArrayList<>();
+    this.photoUrls.add(photoUrlDefault);
+   }
+   private  void  fillTagsWithDefaultData(){
+    this.tags=new ArrayList<>();
+    Tag tag=new Tag();
+    TagData tagData =new TagData();
+    tag.setId(tagData.idTag);
+    tag.setName(tagData.nameTag);
+    this.tags.add(tag);
+   }
+
+    @Override
+    public String toString() {
+        return "PetData{" +
+                "idPet=" + idPet +
+                ", category=" + category +
+                ", namePet='" + namePet + '\'' +
+                ", photoUrls=" + photoUrls +
+                ", tags=" + tags +
+                ", status='" + status + '\'' +
+                ", photoUrlDefault='" + photoUrlDefault + '\'' +
+                '}';
+    }
+}
